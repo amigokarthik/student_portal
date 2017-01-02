@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Innovision Challenge</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<style>
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    color:pink;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+} 
+input[disabled="disabled"]{
+opacity : 0.4;
+cursor : not-allowed !important;
+}
+</style>
+  </head>
+<body>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-12">
+  <center><h1><font style="color:Brown;"><b>Student Portal Admin</b></font></h1><br/></center>
+</div>
+</div>
+
+<hr/>
+<div class="row">
+<div class="col-sm-6">
+<center>
+<form ng-submit="createMeetup()" name="pForm">
+<div class="table-responsive">  
+<table style="width:90%" align="center" class="table table-striped">
+<tbody>
+<tr>
+    <td width="18%">Course Name : <span style="color:red">*</span>:</td>
+    <td width="82%">
+     <input type="text" class="form-control" aria-describedby="sizing-addon1" ng-model="cName" placeholder="Username" name="cname" ng-required="true" />
+     <div ng-show="(pForm.cname.$touched && pForm.cname.$invalid)">
+     <small style="color : red; display : block; text-align : center;">Please enter a valid course name</small>
+     </div>
+     </td>
+</tr>
+<tr>
+     <td width="18%">Course Description : <span style="color:red">*</span>:</td>
+         <td width="82%">
+     <textarea type="text" class="form-control" aria-describedby="sizing-addon1" name="cdesc" style="color:black;"  placeholder="Course Description" ng-model="cdesc" ng-required="true"></textarea>
+     </td>
+</tr>
+<tr></tr>
+<tr>
+     <td></td>
+     <td><center><input type="submit" class="btn btn-primary btn-lg" value="Add" ng-disabled="pForm.$invalid" />
+      </center></td>
+</tr>
+</tbody>
+</table>
+    </form> 
+</center>
+</div>
+<div class="col-sm-6">
+<font style="color:Blue;"><b>Provide student rankings for course:</b></font> 
+<br/><br/>
+<div class="form-group" ng-repeat="x in datap track by $index" id="co">
+<form ng-submit="rank(x.username,x.course)" name="pForm">
+<font style="color:Blue;">Username : </font>{{x.username}}</p>
+<font style="color:Blue;">Course : </font>{{x.course}}</p>
+<input type="number"  class="form-control" aria-describedby="sizing-addon1" pattern=".{10,}" ng-model="phone" min="1" max="10"  name="phone" style="color:black;"  placeholder="Give Rank" id="rnk" ></input>
+<br/>
+<input type="submit" class="btn btn-primary btn-md" value="Submit Rank"  />
+<hr/>
+</form>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

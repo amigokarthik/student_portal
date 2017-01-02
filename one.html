@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>Innovision Challenge</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<style>
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched{
+border : 2px solid red;
+}
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    color:pink;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+} 
+input[disabled="disabled"]{
+opacity : 0.4;
+cursor : not-allowed !important;
+}
+</style>
+  </head>
+<body>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-12">
+  <center><h1>Innovision Student Portal</h1><br/></center>
+</div>
+</div>
+<hr/>
+
+<font style="color:green;">If your are a returning user please login</font>
+<div class="row">
+<form ng-submit="createMeetupl()" name="lForm">
+<div class="col-sm-5">
+
+		 <input type="text" class="form-control" aria-describedby="sizing-addon1" ng-model="userNamel" placeholder="Username" name="unamel" ng-required="true" />
+		 <div ng-show="(pForm.unamel.$touched && pForm.unamel.$invalid)">
+		 <small style="color : red; display : block; text-align : center;">Please enter a valid user name</small>
+		 </div>
+		 
+</div>
+<div class="col-sm-5">
+
+		 <input type="password" placeholder="Password" class="form-control" pattern=".{6,24}" aria-describedby="sizing-addon1" ng-model="pswdl"  name="pswdl" ng-required="true" />
+		 <div ng-show="(pForm.pswdl.$touched && pForm.pswdl.$invalid)">
+		 <small style="color : red; display : block; text-align : center;">Password length must be between 6 and 24</small>
+		 </div>
+		 
+</div>
+<div class="col-sm-2">
+<input type="submit" class="btn btn-primary btn-lg" value="Login"  />
+</div>
+</form>
+<font style="color:Red;">{{er}}</font>
+</div>
+<br/>
+<hr/>
+<br/>
+<font style="color:green;">If your are a new user please fill the form and register</font>
+<br/>
+<div class="row">
+<div class="col-sm-12">
+<center>
+<form ng-submit="createMeetup()" name="pForm">
+<div class="table-responsive">  
+<table style="width:90%" align="center" class="table table-striped">
+<tbody>
+<tr>
+        <td width="18%">User Name <span style="color:red">*</span>:</td>
+		<td width="82%">
+		 <input type="text" class="form-control" aria-describedby="sizing-addon1" ng-model="userName" placeholder="Username" name="uname" ng-required="true" />
+		 <div ng-show="(pForm.uname.$touched && pForm.uname.$invalid) || usernameValid">
+		 <small style="color : red; display : block; text-align : center;">Please enter a valid user name</small>
+		 </div>
+		 </td>
+</tr>
+<tr>
+        <td width="18%">Password<span style="color:red">*</span>:</td>
+		<td width="82%">
+		 <input type="password" placeholder="Password" class="form-control" pattern=".{6,24}" aria-describedby="sizing-addon1" ng-model="pswd"  name="pswd" ng-required="true" />
+		 <div ng-show="(pForm.pswd.$touched && pForm.pswd.$invalid) || usernameValid">
+		 <small style="color : red; display : block; text-align : center;">Password length must be between 6 and 24</small>
+		 </div>
+		 </td>
+</tr>
+<tr>
+        <td width="18%">College Name <span style="color:red">*</span>:</td>
+		<td width="82%">
+		 <input type="text" class="form-control" aria-describedby="sizing-addon1" ng-model="cName" placeholder="College Name" name="cname" ng-required="true" />
+		 <div ng-show="(pForm.cname.$touched && pForm.cname.$invalid)">
+		 <small style="color : red; display : block; text-align : center;">Please enter a valid college name</small>
+		 </div>
+		 </td>
+</tr>
+<tr>
+        <td width="18%">Email<span style="color:red">*</span>:</td>
+		<td width="82%">
+		 <input type="email" class="form-control" placeholder="me@example.com" aria-describedby="sizing-addon1" name="input" ng-model="email" ng-required="true">
+		 <div ng-show="(pForm.input.$touched && pForm.input.$invalid) || pForm.input.$error.email">
+		 <small style="color : red; display : block; text-align : center;">Please enter a valid email</small>
+		 </div>
+		 </td>
+</tr>
+<tr></tr>
+<tr>
+		 <td></td>
+		 <td><center><input type="submit" class="btn btn-primary btn-lg" value="Register" ng-disabled="pForm.$invalid" />
+			</center></td>
+</tr>
+</tbody>
+</table>
+		</form> 
+		<font style="color:Red;">{{regerr}}</font>			
+</center>
+</div>
+</div>
+</div>
+</body>
+</html>
